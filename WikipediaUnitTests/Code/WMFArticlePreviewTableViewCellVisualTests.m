@@ -18,7 +18,15 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 - (void)testExampleWithShortText {
-    
+    // populate w/ data
+    [self.cell setImageURL:nil];
+    [self.cell setTitleText:@"Title"];
+    [self.cell setDescriptionText:@"Short description."];
+    [self.cell setSnippetText:@"Short extract."];
+    // cells are usually laid out by their table view, here we do it manually
+    [self.cell wmf_sizeToFitWindowWidth];
+    // take/verify snapshot!
+    FBSnapshotVerifyView(self.cell, nil);
 }
 
 @end
