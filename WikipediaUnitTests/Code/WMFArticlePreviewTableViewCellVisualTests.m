@@ -2,6 +2,7 @@
 #import "WMFArticlePreviewTableViewCell.h"
 #import "UIView+WMFDefaultNib.h"
 #import "UIView+VisualTestSizingUtils.h"
+#import "UIApplication+VisualTestUtils.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -13,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)setUp {
     [super setUp];
-    self.recordMode = NO;
+    self.recordMode = YES;
     self.cell = [WMFArticlePreviewTableViewCell wmf_viewFromClassNib];
 }
 
@@ -27,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
     [self.cell wmf_sizeToFitWindowWidth];
     // take/verify snapshot!
     FBSnapshotVerifyViewWithOptions(self.cell,
-                                    nil,
+                                    [[UIApplication sharedApplication] wmf_userInterfaceLayoutDirectionAsString],
                                     FBSnapshotTestCaseDefaultSuffixes(),
                                     0.05);
 }
