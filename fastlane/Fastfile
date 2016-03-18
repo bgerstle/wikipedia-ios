@@ -5,15 +5,22 @@ default_platform :ios
 platform :ios do
   desc "Run all test schemes."
   lane :run_all_tests do
-    run_tests(scheme: 'Wikipedia')
-    run_tests(scheme: 'WikipediaRTL')
+    schemes = ['Wikipedia', 'WikipediaRTL']
+    os_versions = [9.2, 8.4]
+    schemes.each { |s|
+      os_versions.each { |v|
+        run_tests(scheme: s, sim_os: v)
+      }
+    }
   end
 
   desc "Run unit tests."
   lane :run_tests do |options|
-    destination = "platform=iOS Simulator,name=iPhone 6,OS=9.2"
+    scheme = options[:scheme] || 'Wikipedia'
+    sim_os = options[:sim_os] || '9.2'
+    destination = "platform=iOS Simulator,name=iPhone 6,OS=#{sim_os}"
     scan(
-      scheme: options[:scheme],
+      scheme: scheme,
       destination: destination)
   end
 end
