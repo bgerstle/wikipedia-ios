@@ -12,4 +12,6 @@
 
 - (NSString*)wmf_systemVersionAndWritingDirection;
 
+- (NSString*)wmf_userInterfaceLayoutDirectionAsString;
+
 @end
