@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)setUp {
     [super setUp];
-    self.recordMode = YES;
+    self.recordMode = NO;
     self.cell = [WMFArticlePreviewTableViewCell wmf_viewFromClassNib];
 }
 
@@ -26,7 +26,10 @@ NS_ASSUME_NONNULL_BEGIN
     // cells are usually laid out by their table view, here we do it manually
     [self.cell wmf_sizeToFitWindowWidth];
     // take/verify snapshot!
-    FBSnapshotVerifyView(self.cell, nil);
+    FBSnapshotVerifyViewWithOptions(self.cell,
+                                    nil,
+                                    FBSnapshotTestCaseDefaultSuffixes(),
+                                    0.05);
 }
 
 @end
