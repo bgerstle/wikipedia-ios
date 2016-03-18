@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "0710"
-   version = "1.3">
+   version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
@@ -17,6 +17,20 @@
                BlueprintIdentifier = "D4991434181D51DE00E6073C"
                BuildableName = "Wikipedia.app"
                BlueprintName = "Wikipedia"
+               ReferencedContainer = "container:Wikipedia.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "BC4273511A7C736800068882"
+               BuildableName = "WikipediaUnitTests.xctest"
+               BlueprintName = "WikipediaUnitTests"
                ReferencedContainer = "container:Wikipedia.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -60,9 +74,6 @@
                   Identifier = "MWKArticleExtractionTests">
                </Test>
                <Test
-                  Identifier = "MWKArticlePreviewSerializationTests">
-               </Test>
-               <Test
                   Identifier = "MWKArticleStoreTestCase">
                </Test>
                <Test
@@ -82,6 +93,9 @@
                </Test>
                <Test
                   Identifier = "MWKHistoryListPerformanceTests">
+               </Test>
+               <Test
+                  Identifier = "MWKHistoryListPerformanceTests/testReadPerformance">
                </Test>
                <Test
                   Identifier = "MWKHistoryListSharedTests">
@@ -183,6 +197,9 @@
                   Identifier = "NSArray_PredicateTests">
                </Test>
                <Test
+                  Identifier = "NSArray_PredicateTests/testPerformance">
+               </Test>
+               <Test
                   Identifier = "NSArray_WMFExtensionsTests">
                </Test>
                <Test
@@ -190,6 +207,9 @@
                </Test>
                <Test
                   Identifier = "NSAttributedString_WMFTrimTests">
+               </Test>
+               <Test
+                  Identifier = "NSDate_WMFPOTDTitleTests">
                </Test>
                <Test
                   Identifier = "NSDate_WMFRangesTests">
@@ -202,6 +222,9 @@
                </Test>
                <Test
                   Identifier = "NSString_FormattedAttributedStringTests">
+               </Test>
+               <Test
+                  Identifier = "NSString_FormattedAttributedStringTests/testPerformanceExample">
                </Test>
                <Test
                   Identifier = "NSString_WMFHTMLParsingTests">
@@ -228,9 +251,6 @@
                   Identifier = "UIImageView_MWKImageTests">
                </Test>
                <Test
-                  Identifier = "UIViewController_WMFSearchButtonTests">
-               </Test>
-               <Test
                   Identifier = "WMFArticleFetchIfNeededTests">
                </Test>
                <Test
@@ -240,10 +260,19 @@
                   Identifier = "WMFArticleListCellVisualTests">
                </Test>
                <Test
+                  Identifier = "WMFArticlePreviewCellVisualTests">
+               </Test>
+               <Test
                   Identifier = "WMFAsyncTestCase">
                </Test>
                <Test
                   Identifier = "WMFBackgroundTaskManagerTests">
+               </Test>
+               <Test
+                  Identifier = "WMFBaseExploreSectionControllerTests">
+               </Test>
+               <Test
+                  Identifier = "WMFBlacklistTests">
                </Test>
                <Test
                   Identifier = "WMFCollectionViewExtensionTests">
@@ -258,7 +287,16 @@
                   Identifier = "WMFErrorForApiErrorObjectTests">
                </Test>
                <Test
+                  Identifier = "WMFExploreSectionControllerCacheTests">
+               </Test>
+               <Test
+                  Identifier = "WMFExploreSectionSchemaTests">
+               </Test>
+               <Test
                   Identifier = "WMFGeometryTests">
+               </Test>
+               <Test
+                  Identifier = "WMFImageControllerErrorDomainTest">
                </Test>
                <Test
                   Identifier = "WMFImageControllerTests">
@@ -282,6 +320,9 @@
                   Identifier = "WMFModalArticleImageGalleryDataSourceTests">
                </Test>
                <Test
+                  Identifier = "WMFMostReadDateTests">
+               </Test>
+               <Test
                   Identifier = "WMFPicOfTheDayTableViewCellVisualTests">
                </Test>
                <Test
@@ -303,13 +344,16 @@
                   Identifier = "WMFSearchResultsSerializationTests">
                </Test>
                <Test
+                  Identifier = "WMFSettingsCellVisualTests">
+               </Test>
+               <Test
                   Identifier = "WMFSubstringUtilsTests">
                </Test>
                <Test
-                  Identifier = "XCTestCasePromiseKitSwiftTests">
+                  Identifier = "WMFTextualSaveButtonLayoutVisualTests">
                </Test>
                <Test
-                  Identifier = "XCTestCase_PromiseKitSwiftTests">
+                  Identifier = "XCTestCasePromiseKitSwiftTests">
                </Test>
                <Test
                   Identifier = "XCTestCase_PromiseKitTests">
@@ -338,7 +382,7 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
-      allowLocationSimulation = "YES">
+      allowLocationSimulation = "NO">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
@@ -355,33 +399,15 @@
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "-AppleLanguages (he)"
-            isEnabled = "YES">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "-WMFVisualTestBatchRecordMode NO"
+            argument = "-AppleLanguages (he_IL)"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "FB_REFERENCE_IMAGE_DIR"
-            value = "$(SOURCE_ROOT)/WikipediaUnitTests/ReferenceImages"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "TRAVIS"
-            value = "$(TRAVIS)"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "WMF_FIXTURE_DIRECTORY"
-            value = "$(SOURCE_ROOT)/WikipediaUnitTests/Fixtures"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
+      <DeviceAppData
+         resolvedPath = "../4.0.6 extreme memory test data.xcappdata">
+      </DeviceAppData>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -389,7 +415,8 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D4991434181D51DE00E6073C"
@@ -397,7 +424,7 @@
             BlueprintName = "Wikipedia"
             ReferencedContainer = "container:Wikipedia.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

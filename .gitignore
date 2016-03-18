@@ -38,6 +38,7 @@ vendor/bundle
 # Fastlane
 fastlane/report.xml
 fastlane/Error*.png
+fastlane/test_output/*
 *.mobileprovision
 
 # Ignore baselines, which we'll eventually maintain in CI to prevent

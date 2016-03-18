@@ -14,7 +14,7 @@
 #import "WMFModalPOTDGalleryDataSource.h"
 #import "WMFArticleImageGalleryDataSource.h"
 #import "WMFModalArticleImageGalleryDataSource.h"
-#import "NSArray+WMFLayoutDirectionUtilities.h"
+#import "Wikipedia-Swift.h"
 
 #import "SSArrayDataSource+WMFReverseIfRTL.h"
 #import "MWKDataStore+TempDataStoreForEach.h"
@@ -33,12 +33,14 @@ QuickConfigurationBegin(WMFGalleryDataSourceTestsConfiguration)
         });
 
         it(@"should reorder the items if necessary", ^{
-            NSArray* expectedItems =
-                [[NSProcessInfo processInfo] wmf_isOperatingSystemVersionLessThan9_0_0] ?
-                [rawItems wmf_reverseArrayIfApplicationIsRTL] : rawItems;
-            [expectedItems enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, BOOL* _Nonnull stop) {
-                expect([dataSource itemAtIndexPath:[NSIndexPath indexPathForItem:idx inSection:0]])
-                .toWithDescription(equal(obj), [NSString stringWithFormat:@"Expected item at index %lu to be %@", idx, obj]);
+            BOOL shouldReverse = [[NSProcessInfo processInfo] wmf_isOperatingSystemVersionLessThan9_0_0]
+                                 && [[UIApplication sharedApplication] wmf_isRTL];
+            
+            NSArray* expectedItems = shouldReverse ? [rawItems wmf_reverseArray] : rawItems;
+            
+            [expectedItems enumerateObjectsUsingBlock:^(id _Nonnull expectedItem, NSUInteger idx, BOOL* _) {
+                id itemAtIndexPath = [dataSource itemAtIndexPath:[NSIndexPath indexPathForItem:idx inSection:0]];
+                expect(itemAtIndexPath).to(equal(expectedItem));
             }];
         });
     });
